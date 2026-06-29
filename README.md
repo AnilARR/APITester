@@ -33,6 +33,7 @@ A modern VS Code-style API testing tool built with HTML, CSS, and JavaScript.
 
 <img width="774" height="420" alt="Screenshot 2026-06-29 at 11 48 37 PM" src="https://github.com/user-attachments/assets/d795c631-758c-4e9b-a371-2739a19ea6dc" />
 
+<img width="1499" height="821" alt="Screenshot 2026-06-29 at 11 50 40 PM" src="https://github.com/user-attachments/assets/842a1ce9-616d-4f3b-b137-cf7791b8b655" />
 
 ---
 
