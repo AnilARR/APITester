@@ -1,8 +1,8 @@
-# ⚡ API Tester Pro
+# ⚡ API Tester
 
 A modern VS Code-style API testing tool built with HTML, CSS, and JavaScript.
 
-🚀 Live Demo: https://anilarr.github.io/ApiTester/
+🚀 Live Demo: https://anilarr.github.io/APITester/
 
 ---
 
