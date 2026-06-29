@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+/>
+
+<title>API Tester Pro</title>
+
+<link
+    rel="stylesheet"
+    href="style.css"
+/>
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-bolt"></i>
+            API Tester
+        </div>
+
+        <div class="sidebar-section">
+
+            <h3>History</h3>
+
+            <ul id="historyList">
+            </ul>
+
+        </div>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main class="main">
+
+        <!-- Top Bar -->
+
+        <div class="topbar">
+
+            <select id="method">
+
+                <option>GET</option>
+                <option>POST</option>
+                <option>PUT</option>
+                <option>PATCH</option>
+                <option>DELETE</option>
+
+            </select>
+
+            <input
+                id="url"
+                placeholder="https://api.example.com/users"
+            />
+
+            <button
+                class="send-btn"
+                onclick="sendRequest()"
+            >
+                Send
+            </button>
+
+        </div>
+
+        <!-- Tabs -->
+
+        <div class="tabs">
+
+            <button
+                class="tab active"
+                onclick="showTab('headers')"
+            >
+                Headers
+            </button>
+
+            <button
+                class="tab"
+                onclick="showTab('body')"
+            >
+                Body
+            </button>
+
+        </div>
+
+        <!-- Headers -->
+
+        <div
+            class="tab-content active"
+            id="headers-tab"
+        >
+
+<textarea id="headers">
+{
+  "Content-Type":"application/json"
+}
+</textarea>
+
+        </div>
+
+        <!-- Body -->
+
+        <div
+            class="tab-content"
+            id="body-tab"
+        >
+
+<textarea
+    id="body"
+    placeholder="Request Body..."
+></textarea>
+
+        </div>
+
+        <!-- Toolbar -->
+
+        <div class="toolbar">
+
+            <button onclick="importCurl()">
+                Import cURL
+            </button>
+
+            <button onclick="exportCurl()">
+                Export cURL
+            </button>
+
+            <button onclick="copyResponse()">
+                Copy Response
+            </button>
+
+            <button onclick="downloadResponse()">
+                Download
+            </button>
+
+        </div>
+
+        <!-- Response -->
+
+        <div class="response-header">
+
+            <span id="status">
+                Status: -
+            </span>
+
+            <span id="time">
+                Time: -
+            </span>
+
+        </div>
+
+<pre id="response">
+Ready...
+</pre>
+
+    </main>
+
+</div>
+
+<!-- Import cURL Drawer -->
+
+<div
+    id="curlDrawer"
+    class="drawer"
+>
+
+    <div class="drawer-content">
+
+        <div class="drawer-header">
+
+            <h2>Import cURL</h2>
+
+            <button
+                class="close-btn"
+                onclick="closeCurlDrawer()"
+            >
+                ×
+            </button>
+
+        </div>
+
+<textarea
+    id="curlInput"
+    placeholder='curl -X POST https://example.com/api -H "Content-Type: application/json" -d "{\"name\":\"John\"}"'
+></textarea>
+
+        <button
+            class="import-btn"
+            onclick="parseCurl()"
+        >
+            Import
+        </button>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

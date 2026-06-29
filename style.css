@@ -1,0 +1,406 @@
+/* =========================
+   VS CODE STYLE API TESTER
+========================= */
+
+:root{
+    --bg:#1e1e1e;
+    --sidebar:#252526;
+    --panel:#2d2d30;
+    --border:#3e3e42;
+    --text:#d4d4d4;
+    --muted:#9da1a6;
+    --accent:#007acc;
+    --accent-hover:#0e639c;
+    --success:#16c60c;
+    --warning:#ffcc00;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    height:100%;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:
+        Inter,
+        Segoe UI,
+        Arial,
+        sans-serif;
+    overflow:hidden;
+}
+
+/* =========================
+   APP
+========================= */
+
+.app{
+    display:flex;
+    height:100vh;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+    width:280px;
+    background:var(--sidebar);
+    border-right:1px solid var(--border);
+    display:flex;
+    flex-direction:column;
+}
+
+.logo{
+    padding:20px;
+    font-size:20px;
+    font-weight:700;
+    color:var(--warning);
+    border-bottom:1px solid var(--border);
+}
+
+.logo i{
+    margin-right:10px;
+}
+
+.sidebar-section{
+    padding:15px;
+    overflow:auto;
+}
+
+.sidebar-section h3{
+    color:var(--muted);
+    margin-bottom:12px;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+#historyList{
+    list-style:none;
+}
+
+#historyList li{
+    padding:12px;
+    margin-bottom:8px;
+    background:#1b1b1b;
+    border:1px solid transparent;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.2s;
+    font-size:13px;
+    word-break:break-word;
+}
+
+#historyList li:hover{
+    border-color:var(--accent);
+    background:#202020;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.main{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+}
+
+/* =========================
+   TOPBAR
+========================= */
+
+.topbar{
+    padding:15px;
+    background:var(--panel);
+    border-bottom:1px solid var(--border);
+    display:flex;
+    gap:10px;
+}
+
+#method{
+    width:120px;
+}
+
+select,
+input{
+    background:#1b1b1b;
+    color:white;
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:12px;
+    outline:none;
+}
+
+input{
+    flex:1;
+}
+
+select:focus,
+input:focus,
+textarea:focus{
+    border-color:var(--accent);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button{
+    border:none;
+    cursor:pointer;
+    border-radius:8px;
+    transition:.2s;
+}
+
+.send-btn{
+    background:var(--accent);
+    color:white;
+    padding:12px 20px;
+    font-weight:600;
+}
+
+.send-btn:hover{
+    background:var(--accent-hover);
+}
+
+.toolbar{
+    display:flex;
+    gap:10px;
+    padding:12px 15px;
+    background:#252526;
+    border-bottom:1px solid var(--border);
+}
+
+.toolbar button{
+    background:#3c3c3c;
+    color:white;
+    padding:10px 14px;
+}
+
+.toolbar button:hover{
+    background:#4a4a4a;
+}
+
+/* =========================
+   TABS
+========================= */
+
+.tabs{
+    display:flex;
+    background:#252526;
+    border-bottom:1px solid var(--border);
+}
+
+.tab{
+    background:none;
+    color:var(--muted);
+    padding:14px 20px;
+    border-radius:0;
+}
+
+.tab:hover{
+    background:#333;
+}
+
+.tab.active{
+    color:white;
+    border-bottom:2px solid var(--accent);
+}
+
+.tab-content{
+    display:none;
+    background:#1e1e1e;
+}
+
+.tab-content.active{
+    display:block;
+}
+
+/* =========================
+   EDITORS
+========================= */
+
+textarea{
+    width:100%;
+    height:220px;
+    resize:none;
+    border:none;
+    outline:none;
+    background:#1e1e1e;
+    color:#ce9178;
+    font-family:
+        Consolas,
+        monospace;
+    font-size:14px;
+    line-height:1.6;
+    padding:18px;
+}
+
+/* =========================
+   RESPONSE
+========================= */
+
+.response-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px;
+    background:#252526;
+    border-bottom:1px solid var(--border);
+}
+
+#status{
+    color:var(--success);
+    font-weight:600;
+}
+
+#time{
+    color:var(--warning);
+}
+
+#response{
+    flex:1;
+    overflow:auto;
+    padding:20px;
+    background:#1e1e1e;
+    color:#9cdcfe;
+    font-family:
+        Consolas,
+        monospace;
+    white-space:pre-wrap;
+    word-break:break-word;
+    line-height:1.5;
+}
+
+/* =========================
+   DRAWER
+========================= */
+
+.drawer{
+    position:fixed;
+    top:0;
+    right:-520px;
+    width:520px;
+    max-width:100%;
+    height:100vh;
+    background:#252526;
+    border-left:1px solid var(--border);
+    transition:.3s ease;
+    z-index:1000;
+}
+
+.drawer.open{
+    right:0;
+}
+
+.drawer-content{
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    height:100%;
+}
+
+.drawer-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.drawer-header h2{
+    color:var(--warning);
+}
+
+.close-btn{
+    width:40px;
+    height:40px;
+    background:#444;
+    color:white;
+    font-size:20px;
+}
+
+.close-btn:hover{
+    background:#555;
+}
+
+#curlInput{
+    flex:1;
+    min-height:350px;
+}
+
+.import-btn{
+    margin-top:15px;
+    background:var(--accent);
+    color:white;
+    padding:14px;
+    font-weight:600;
+}
+
+.import-btn:hover{
+    background:var(--accent-hover);
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+    width:10px;
+    height:10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#555;
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#1e1e1e;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    body{
+        overflow:auto;
+    }
+
+    .app{
+        flex-direction:column;
+        height:auto;
+    }
+
+    .sidebar{
+        width:100%;
+        max-height:220px;
+    }
+
+    .topbar{
+        flex-direction:column;
+    }
+
+    #method{
+        width:100%;
+    }
+
+    .toolbar{
+        flex-wrap:wrap;
+    }
+
+    .drawer{
+        width:100%;
+    }
+}
